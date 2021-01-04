@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Random Image Draw</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel='icon' href='assets/icon.png'>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div id='main'>
+            
+            <h1 id='main-title'>RANDOM IMAGE DRAW</h1>
+
+            <div id='configs-window'>
+                
+                <h1 id='configs-title'>Configurações</h1>
+                
+                <div id='configs-dropper'>
+                    <button id='cleaner'>X</button>
+                    <img src='assets/get_app.svg'/>
+                    <p id='dropper-text'>Drope as imagens aqui ou 
+                        <label for='files-input'>
+                            <span id='dropper-text-emphasys'>escolha as imagens</span>
+                        </label>    
+                        <input id='files-input' style="display: none;" type="file" multiple>
+                    </p>
+                    <p id='dropper-text'>Imagens Selecionadas <span id='selected-images'>0</span></p>
+                </div>
+
+                <div id='configs-options'>
+                    <div class='configs-row'>
+                        <p class='config-text'>Tempo</p>
+                        <select id='time-opt'>
+                            <option>5s</option>
+                            <option>15s</option>
+                            <option>30s</option>
+                            <option>60s</option>
+                        </select>
+                    </div>
+
+                    <div id='configs-options-loop'>
+                        <div class='configs-row'><p class='config-text'>Loop ?</p><input type="checkbox" id='loop-opt'/></div>
+                        <div class='configs-row'><p class='config-text'>Random por Loop ?</p><input type="checkbox" id='looprd-opt'/></div>
+                    </div>
+
+                    <div class='configs-row'>
+                        <p class='config-text'>Modo</p>
+                        <img id='dark-mode' src="assets/bedtime.svg">
+                    </div>
+
+                </div>
+                <button class='configs-button' id='start-button'>START</button>
+            
+            </div>
+            
+            <div id='image-window'>
+                <span id='counter'>00:00</span>
+                <div id='image-options'>
+                    <img src='assets/next.png' title="next" id='next-button'>
+                    <img src='assets/pause.png' title="pause" id='pause-button'>
+                    <div id='stop-button' title="stop" id='stop-button'></div>
+                    <img src='assets/next.png' title="prev" id='prev-button'>
+                </div>
+                <img id='image-render' src='assets/Hyoga.JPG'>
+            </div>
+
+        </div>
+        <script src='dropper.js'></script>
+        <script src='darkmode.js'></script>
+        <script src="counter.js"></script>
+    </body>
+</html>

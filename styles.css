@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
+
+:root{
+    --background: linear-gradient(5deg, #15C9C9, #FFFFFF);
+    --title-color: black;
+    --background-dropper: white;
+    --dropper-t1color: #848484;
+    --dropper-shadow: grey;
+}
+
+[dark-theme='dark']{
+    --background: linear-gradient(5deg, #3D0D0D, #851919);
+    --title-color: white;
+    --background-dropper: #A0A0A0;
+    --dropper-t1color: white;
+    --dropper-shadow: rgb(64, 64, 64);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Schoolbell', cursive;
+}
+
+body{
+    background: var(--background);
+    height: 100vh;
+    overflow: hidden;
+}
+
+#main-title{
+    position: relative;
+    color: var(--title-color);
+    top: 20px;
+    text-align: center;
+    font-size: 36px;
+    font-weight: normal;
+}
+
+#configs-window{
+    display: block;
+    position: absolute;
+    background-color: #563434; 
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100px;
+    width: 650px;
+    height: 400px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#configs-window.exiting{
+    animation: exiting 0.5s linear;
+}
+
+@keyframes exiting{
+    0%{
+        top: 100px;    
+        opacity: 1;
+    }
+    100%{
+        top: -500px;
+        opacity: 0;    
+    }
+}
+
+#configs-title{
+    text-align: center;
+    font-weight: none;
+    color: white;
+}
+
+#configs-dropper{
+    margin-top: 10px;
+    width: 100%;
+    height: 194px;
+    background-color: var(--background-dropper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 24px;
+    color: var(--dropper-t1color);
+    box-shadow: inset -4px 4px 10px var(--dropper-shadow);
+    transition: background-color .2s;
+}
+
+#configs-dropper.highlight{
+    background-color: #C4FF79;
+}
+
+#configs-dropper #cleaner{
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(-58%, 200%);
+    border: none;
+    background-color: rgb(139, 0, 0);
+    box-shadow: inset -4px 4px 10px rgb(31, 31, 31);
+    padding: 5px 10px;
+    color: white;
+    cursor: pointer;
+    transition: .5s background-color;
+}
+
+#configs-dropper #cleaner:hover{
+    background-color: rgb(179, 0, 0);
+}
+
+#configs-dropper img{
+    width: 71px;
+    height: 71px;
+    
+}
+
+#configs-dropper #dropper-text-emphasys{
+    color: #3E3E3E;
+    cursor: pointer;
+    transition: color .2s;
+}
+
+#configs-dropper #dropper-text-emphasys:hover{
+    color: red;
+}
+
+#configs-dropper #selected-images{
+    color: darkred;
+}
+
+#configs-options{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: white;
+    font-size: 24px;
+}
+
+#configs-options-loop{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#configs-options-loop p{
+    margin-bottom: 15px;
+}
+
+.configs-button{
+    width: 209px;
+    height: 29px;
+    border-radius: 20px;
+    background: linear-gradient(-5deg,#0F650D, #25D721);
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: box-shadow 1s;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.configs-button:hover{
+    box-shadow: inset 0px 0px 12px black;
+}
+
+.configs-row{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.configs-row select{
+    margin-left: 5px;
+    font-family: initial;
+}
+
+.configs-row input[type='checkbox']{
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.configs-row #dark-mode{
+    margin-top: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#image-window{
+    position: relative;
+    top: 100vh;
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    animation: image-entering 0.7s linear forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes image-entering{
+    0%{
+        top: 100vh;   
+        opacity:0; 
+    }
+    100%{
+        top: 0vh;
+        opacity: 1;
+    }
+}
+
+#image-options{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 5px;
+    height: 148px;
+    width: 36px;
+    background-color: var(--background-dropper);
+    align-self: center;
+    border: 1px solid var(--dropper-shadow);
+}
+
+#image-options img, #stop-button{
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+#image-options img:hover, #stop-button:hover{
+    box-shadow: inset 0 0 10px gray;
+}
+
+#image-options img:nth-child(4){
+    transform: rotate(180deg);
+}
+
+#stop-button{
+    background-color: black;
+}
+
+#image-render{
+    height: 100vh;
+    width: auto;
+    max-width: 1000px;
+}
+
+#image-window #counter{
+    position: absolute;
+    text-shadow: 1px 1px 6px white;
+    color: black;
+    font-size: 24pt;
+}
+
+#main-title.side{
+    position: absolute;
+    font-size: 24px;
+    top: initial;
+    margin-right: 5px;
+    right: 0;
+    bottom: 0; 
+    z-index: 55;
+}
+
+#msgDiv{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 15px;
+    margin-right: 15px;
+    width: 296px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 56;
+    box-shadow: 0px 4px 6px var(--dropper-shadow);
+    animation: msgDivUp 0.5s;
+}
+
+@keyframes msgDivUp {
+	0% { 
+	   bottom: -100px;
+	}
+	100% { 
+	   bottom: 0;
+	}
+}
+
+#msgDiv p{
+    font-family: 'Merriweather', serif;
+    font-size: 18px;
+}
