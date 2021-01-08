@@ -10,7 +10,7 @@
 }
 
 [dark-theme='dark']{
-    --background: linear-gradient(5deg, #3D0D0D, #851919);
+    --background: linear-gradient(5deg, #000000, #242424);
     --title-color: white;
     --background-dropper: #A0A0A0;
     --dropper-t1color: white;
@@ -251,8 +251,10 @@ body{
 
 #image-window #counter{
     position: absolute;
+    right: 0;
+    transform: translateX(-50%);
     text-shadow: 1px 1px 6px white;
-    color: black;
+    color: var(--title-color);
     font-size: 24pt;
 }
 
